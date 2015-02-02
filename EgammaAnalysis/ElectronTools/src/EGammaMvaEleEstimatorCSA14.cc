@@ -190,16 +190,16 @@ UInt_t EGammaMvaEleEstimatorCSA14::GetMVABin( double eta, double pt) const {
       ) {
       bin = 0;
       if (pt >= 10 && fabs(eta) < 1.479) bin = 0;
-      if (pt >= 20 && fabs(eta) >= 1.479) bin = 1;
+      if (pt >= 10 && fabs(eta) >= 1.479) bin = 1;
     }
 
     if (fMVAType == EGammaMvaEleEstimatorCSA14::kNonTrigPhys14 ){
        bin = 0;
-       if (pt < 10 && fabs(eta) < 0.6) bin = 0;
-       if (pt < 10 && fabs(eta) >= 0.6 && fabs(eta) < 1.479) bin = 1;
+       if (pt < 10 && fabs(eta) < 0.8) bin = 0;
+       if (pt < 10 && fabs(eta) >= 0.8 && fabs(eta) < 1.479) bin = 1;
        if (pt < 10 && fabs(eta) >= 1.479) bin = 2;
-       if (pt >= 10 && fabs(eta) < 0.6) bin = 3;
-       if (pt >= 10 && fabs(eta) >= 0.6 && fabs(eta) < 1.479) bin = 4;
+       if (pt >= 10 && fabs(eta) < 0.8) bin = 3;
+       if (pt >= 10 && fabs(eta) >= 0.8 && fabs(eta) < 1.479) bin = 4;
        if (pt >= 10 && fabs(eta) >= 1.479) bin = 5;
     }
 
@@ -357,7 +357,7 @@ Double_t EGammaMvaEleEstimatorCSA14::mvaValue(const pat::Electron& ele,
         return -9999;
     }
     
-    if ( (fMVAType != EGammaMvaEleEstimatorCSA14::kTrig) && (fMVAType != EGammaMvaEleEstimatorCSA14::kNonTrig )) {
+    if ( (fMVAType != EGammaMvaEleEstimatorCSA14::kTrig) && (fMVAType != EGammaMvaEleEstimatorCSA14::kNonTrig )&& (fMVAType != EGammaMvaEleEstimatorCSA14::kNonTrigPhys14 )) {
         std::cout << "Error: This method should be called for kTrig or kNonTrig MVA only" << endl;
         return -9999;
     }
