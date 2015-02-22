@@ -264,7 +264,7 @@ void GsfElectronMCAnalyzer::beginJob(){
   h_ele_vertexEta      = new TH1F( "h_ele_vertexEta",      "ele momentum eta",    nbineta,etamin,etamax);
   h_ele_vertexEta->Sumw2();
   h_ele_vertexEtaVsPhi  = new TH2F( "h_ele_vertexEtaVsPhi",      "ele momentum eta vs phi",nbineta2D,etamin,etamax,nbinphi2D,phimin,phimax );
-  h_ele_simAbsEta_matched      = new TH1F( "h_ele_simAbsEta_matched",      "Efficiency vs gen |eta|",    nbineta/2,0.,2.5);
+  h_ele_simAbsEta_matched      = new TH1F( "h_ele_simAbsEta_matched",      "Efficiency vs gen |eta|",    nbineta/2,0.,etamax);
   h_ele_simAbsEta_matched->Sumw2();
   h_ele_simEta_matched      = new TH1F( "h_ele_simEta_matched",      "Efficiency vs gen eta",    nbineta,etamin,etamax);
   h_ele_simEta_matched->Sumw2();
