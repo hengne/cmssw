@@ -1026,6 +1026,8 @@ std::vector<float> EcalClusterTools::localCovariances(const reco::BasicCluster &
         //so that the localCovs have the same average value as the normal covs
         const double barrelCrysSize = 0.01745; //approximate size of crystal in eta,phi in barrel
         const double endcapCrysSize = 0.0447; //the approximate crystal size sigmaEtaEta was corrected to in the endcap
+        //const double shashlikCellSize = 0.0223; // shashlik has a factor of 2 more cells in ix and iy, thus temporarily devide the old EE number by 2.
+        //const double endcapCrysSize = (seedId.subdetId()==EcalShashlik) ? 0.0223 : 0.0447 ;
 
         DetId seedId = getMaximum( v_id, recHits ).first;
 
@@ -1308,6 +1310,8 @@ float EcalClusterTools::getNormedIX(const DetId& id)
     if( id.subdetId()==EcalShashlik ) ix = EKDetId(id).ix();
     if( ix != 0) {
       int iXNorm  = ix - 50;
+      // in shashlik ix and iy run from 1 to 210
+      if ( id.subdetId()==EcalShashlik ) iXNorm = ix - 105;
       if(iXNorm<=0) iXNorm--;
       return iXNorm;
     }
@@ -1324,6 +1328,8 @@ float EcalClusterTools::getNormedIY(const DetId& id)
     if( id.subdetId()==EcalShashlik ) iy = EKDetId(id).iy();
     if( iy != 0 ) {
       int iYNorm  = iy - 50;
+      // in shashlik ix and iy run from 1 to 210
+      if ( id.subdetId()==EcalShashlik ) iYNorm = iy - 105;
       if(iYNorm<=0) iYNorm--;
       return iYNorm;
     }
