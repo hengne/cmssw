@@ -569,9 +569,11 @@ void GsfElectronAlgo::calculateShowerShape( const reco::SuperClusterRef & theClu
     showerShape.hcalDepth2OverEcalBc = generalData_->hcalHelperPflow->hcalESumDepth2BehindClusters(showerShape.hcalTowersBehindClusters)/theClus->energy() ;
    }
   else
-   {
-    if (detector==EcalBarrel || detector==EcalShashlik) {
-      if( generalData_->hcalHelperBarrel->getConfig().hOverEMethod != 3 ) {
+  {
+    if (detector==EcalBarrel) 
+    {
+      if( generalData_->hcalHelperBarrel->getConfig().hOverEMethod != 3 ) 
+      {
 	showerShape.hcalDepth1OverEcal = generalData_->hcalHelperBarrel->hcalESumDepth1(*theClus)/theClus->energy() ; 
 	showerShape.hcalDepth2OverEcal = generalData_->hcalHelperBarrel->hcalESumDepth2(*theClus)/theClus->energy() ;
 	showerShape.hcalTowersBehindClusters = generalData_->hcalHelperBarrel->hcalTowersBehindClusters(*theClus) ;
@@ -581,15 +583,25 @@ void GsfElectronAlgo::calculateShowerShape( const reco::SuperClusterRef & theClu
 	 showerShape.hcalDepth1OverEcal = generalData_->hcalHelperBarrel->HCALClustersBehindSC(*theClus)/theClus->energy() ; 
       }
     }
-    if (detector==HGCEE ) {
-    showerShape.hcalDepth1OverEcal = generalData_->hcalHelperEndcap->HCALClustersBehindSC(*theClus)/theClus->energy() ; 
-    //showerShape.hcalDepth2OverEcal = generalData_->hcalHelperBarrel->hcalESumDepth2(*theClus)/theClus->energy() ;
-    //showerShape.hcalTowersBehindClusters = generalData_->hcalHelperBarrel->hcalTowersBehindClusters(*theClus) ;
-    //showerShape.hcalDepth1OverEcalBc = generalData_->hcalHelperBarrel->hcalESumDepth1BehindClusters(showerShape.hcalTowersBehindClusters)/theClus->energy() ;
-    //showerShape.hcalDepth2OverEcalBc = generalData_->hcalHelperBarrel->hcalESumDepth2BehindClusters(showerShape.hcalTowersBehindClusters)/theClus->energy() ;
+    else if (detector==EcalEndcap || detector==EcalShashlik) 
+    {
+      if( generalData_->hcalHelperEndcap->getConfig().hOverEMethod != 3 ) 
+      {
+        showerShape.hcalDepth1OverEcal = generalData_->hcalHelperEndcap->hcalESumDepth1(*theClus)/theClus->energy() ;
+        showerShape.hcalDepth2OverEcal = generalData_->hcalHelperEndcap->hcalESumDepth2(*theClus)/theClus->energy() ;
+        showerShape.hcalTowersBehindClusters = generalData_->hcalHelperEndcap->hcalTowersBehindClusters(*theClus) ;
+        showerShape.hcalDepth1OverEcalBc = generalData_->hcalHelperEndcap->hcalESumDepth1BehindClusters(showerShape.hcalTowersBehindClusters)/theClus->energy() ;
+        showerShape.hcalDepth2OverEcalBc = generalData_->hcalHelperEndcap->hcalESumDepth2BehindClusters(showerShape.hcalTowersBehindClusters)/theClus->energy() ;
+      } else {
+         showerShape.hcalDepth1OverEcal = generalData_->hcalHelperEndcap->HCALClustersBehindSC(*theClus)/theClus->energy() ;
+      }
     }
-   }
- }
+    else if (detector==HGCEE ) 
+    {
+      showerShape.hcalDepth1OverEcal = generalData_->hcalHelperEndcap->HCALClustersBehindSC(*theClus)/theClus->energy() ; 
+    }
+  }
+}
 
 
 //===================================================================
