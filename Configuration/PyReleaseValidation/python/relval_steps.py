@@ -890,6 +890,7 @@ dataReco={'--runUnscheduled':'',
           '--data':'',
           '--process':'reRECO',
           '--scenario':'pp',
+          '--customise'   :'RecoTracker/Configuration/customiseNoCCC.customiseNoCCC',
           }
 
 dataRecoAlCaEle=merge([{'-s':'RAW2DIGI,L1Reco,RECO,EI,ALCA:SiStripCalZeroBias+SiStripCalMinBias+TkAlMinBias+EcalCalZElectron+EcalCalWElectron+EcalUncalZElectron+EcalUncalWElectron,DQM'}, dataReco])
