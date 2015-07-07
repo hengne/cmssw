@@ -805,12 +805,12 @@ step2Upg2015Defaults = {'-s'     :'DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@frozen25ns,
                  '--magField'    :'38T_PostLS1',
                  '--datatier'    :'GEN-SIM-DIGI-RAW-HLTDEBUG',
                  '--eventcontent':'FEVTDEBUGHLT',
-                 '--customise'   :'RecoTracker/Configuration/python/customiseNoCCC.customiseNoCCC,SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1',
+                 '--customise'   :'RecoTracker/Configuration/customiseNoCCC.customiseNoCCC,SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1',
                  '-n'            :'10'
                   }
 step2Upg2015Defaults50ns = merge([{'-s':'DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@frozen50ns,RAW2DIGI,L1Reco',
                  '--conditions':'auto:run2_mc_50ns',
-                 '--customise':'RecoTracker/Configuration/python/customiseNoCCC.customiseNoCCC,SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1_50ns'},
+                 '--customise':'RecoTracker/Configuration/customiseNoCCC.customiseNoCCC,SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1_50ns'},
                  step2Upg2015Defaults])
 
 steps['DIGIUP15']=merge([step2Upg2015Defaults])
