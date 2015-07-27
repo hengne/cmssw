@@ -335,7 +335,7 @@ steps['TTbar_13_ID']=identitySim(steps['TTbar_13'])
 
 baseDataSetRelease=[
     'CMSSW_7_1_0_pre7-PRE_STA71_V3-v1',                     # 0 run1 samples; keep GEN-SIM fixed to 710_pre7, for samples not routinely produced
-    'PhotonJets_Pt_10_13_HI',                               # 1 Run1 HI GEN-SIM 
+    'CMSSW_7_5_0-75X_mcRun2_HeavyIon_v1-v2',                               # 1 Run1 HI GEN-SIM 
     'CMSSW_6_2_0_pre8-PRE_ST62_V8_FastSim-v1',              # 2 for fastsim id test
 #    'CMSSW_7_1_0_pre5-START71_V1-v2',                      # 3 8 TeV , for the one sample which is part of the routine relval production (RelValZmumuJets_Pt_20_300, because of -v2)
                                                             # THIS ABOVE IS NOT USED, AT THE MOMENT
@@ -345,7 +345,7 @@ baseDataSetRelease=[
     'CMSSW_7_6_0_pre1-PU50ns_75X_mcRun2_startup_v1-v1',     # 6 - fullSim PU 50ns premix
     'CMSSW_7_6_0_pre1-75X_mcRun2_asymptotic_v1_FastSim-v1', # 7 - fastSim PU for mixing
     'CMSSW_7_5_0-75X_mcRun2_HeavyIon_v1-v2',                # 8 - Run2 HI GEN-SIM
-    'CMSSW_7_5_0_pre4-PU25ns_MCRUN2_75_V1_FastSim-v2'       # 9 - fastSim pre-premix 
+    'CMSSW_7_6_0_pre1-PU25ns_75X_mcRun2_asymptotic_v1_FastSim-v1'       # 9 - fastSim pre-premix 
     ]
 
 # note: INPUT commands to be added once GEN-SIM w/ 13TeV+PostLS1Geo will be available 
