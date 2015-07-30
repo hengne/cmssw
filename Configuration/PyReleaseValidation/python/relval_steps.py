@@ -319,12 +319,12 @@ steps['QCD_FlatPt_15_3000HS_13']=gen2015('QCDForPF_13TeV_TuneCUETP8M1_cfi',Kby(5
 steps['ZpMM_2250_8TeV']=gen('ZpMM_2250_8TeV_TuneCUETP8M1_cfi',Kby(9,100))
 steps['ZpEE_2250_8TeV']=gen('ZpEE_2250_8TeV_TuneCUETP8M1_cfi',Kby(9,100))
 steps['ZpTT_1500_8TeV']=gen('ZpTT_1500_8TeV_TuneCUETP8M1_cfi',Kby(9,100))
-steps['ZpMM_2250_13TeV']=gen2015('ZpMM_2250_13TeV_TuneCUETP8M1_cfi',Kby(9,100))
-steps['ZpEE_2250_13TeV']=gen2015('ZpEE_2250_13TeV_TuneCUETP8M1_cfi',Kby(9,100))
-steps['ZpTT_1500_13TeV']=gen2015('ZpTT_1500_13TeV_TuneCUETP8M1_cfi',Kby(9,100))
-steps['HSCPstop_M_200_13TeV']=gen2015('HSCPstop_M_200_TuneCUETP8M1_13TeV_pythia8_cff',Kby(9,100))
-steps['RSGravitonToGaGa_13TeV']=gen2015('RSGravitonToGammaGamma_kMpl01_M_3000_TuneCUETP8M1_13TeV_pythia8_cfi',Kby(9,100))
-steps['WpToENu_M-2000_13TeV']=gen2015('WprimeToENu_M-2000_TuneCUETP8M1_13TeV-pythia8_cff',Kby(9,100))
+steps['ZpMM_2250_13']=gen2015('ZpMM_2250_13TeV_TuneCUETP8M1_cfi',Kby(9,100))
+steps['ZpEE_2250_13']=gen2015('ZpEE_2250_13TeV_TuneCUETP8M1_cfi',Kby(9,100))
+steps['ZpTT_1500_13']=gen2015('ZpTT_1500_13TeV_TuneCUETP8M1_cfi',Kby(9,100))
+steps['HSCPstop_M_200_13']=gen2015('HSCPstop_M_200_TuneCUETP8M1_13TeV_pythia8_cff',Kby(9,100))
+steps['RSGravitonToGaGa_13']=gen2015('RSGravitonToGammaGamma_kMpl01_M_3000_TuneCUETP8M1_13TeV_pythia8_cfi',Kby(9,100))
+steps['WpToENu_M-2000_13']=gen2015('WprimeToENu_M-2000_TuneCUETP8M1_13TeV-pythia8_cff',Kby(9,100))
 steps['DisplacedSUSY_stopToBottom_M_300_1000mm_13']=gen2015('DisplacedSUSY_stopToBottom_M_300_1000mm_TuneCUETP8M1_13TeV_pythia8_cff',Kby(9,100))
 
 
@@ -344,8 +344,9 @@ baseDataSetRelease=[
     'CMSSW_7_3_0_pre1-PRE_LS172_V15_FastSim-v1',            # 4 - fast sim GEN-SIM-DIGI-RAW-HLTDEBUG for id tests
     'CMSSW_7_5_0_pre6-PU25ns_75X_mcRun2_asymptotic_v1-v1',  # 5 - fullSim PU 25ns premix
     'CMSSW_7_5_0_pre6-PU50ns_75X_mcRun2_startup_v1-v1',     # 6 - fullSim PU 50ns premix
-    'CMSSW_7_5_0_pre6-75X_mcRun2_asymptotic_v1_FastSim-v1', # 7 - fastSim premix
-    'CMSSW_7_5_0_pre6-75X_mcRun2_HeavyIon_v1-v1'            # 8 Run2 HI GEN-SIM
+    'CMSSW_7_5_0_pre6-75X_mcRun2_asymptotic_v1_FastSim-v1', # 7 - fastSim classical mixing
+    'CMSSW_7_5_0_pre4-PU25ns_MCRUN2_75_V1_FastSim-v2'       # 8 - fastSim pre-mixing 
+    'CMSSW_7_5_0_pre6-75X_mcRun2_HeavyIon_v1-v1',           # 9 - Run2 HI GEN-SIM
     ]
 
 # note: INPUT commands to be added once GEN-SIM w/ 13TeV+PostLS1Geo will be available 
@@ -392,9 +393,9 @@ steps['Wjet_Pt_3000_3500_13INPUT']={'INPUT':InputInfo(dataSet='/RelValWjet_Pt_30
 steps['SMS-T1tttt_mGl-1500_mLSP-100_13INPUT']={'INPUT':InputInfo(dataSet='/RelValSMS-T1tttt_mGl-1500_mLSP-100_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')} 
 steps['QCD_FlatPt_15_3000_13INPUT']={'INPUT':InputInfo(dataSet='/RelValQCD_FlatPt_15_3000_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['QCD_FlatPt_15_3000HS_13INPUT']={'INPUT':InputInfo(dataSet='/RelValQCD_FlatPt_15_3000HS_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
-steps['ZpMM_2250_13TeVINPUT']={'INPUT':InputInfo(dataSet='/RelValZpMM_2250_13TeV/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
-steps['ZpEE_2250_13TeVINPUT']={'INPUT':InputInfo(dataSet='/RelValZpEE_2250_13TeV/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
-steps['ZpTT_1500_13TeVINPUT']={'INPUT':InputInfo(dataSet='/RelValZpTT_1500_13TeV/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+steps['ZpMM_2250_13INPUT']={'INPUT':InputInfo(dataSet='/RelValZpMM_2250_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+steps['ZpEE_2250_13INPUT']={'INPUT':InputInfo(dataSet='/RelValZpEE_2250_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+steps['ZpTT_1500_13INPUT']={'INPUT':InputInfo(dataSet='/RelValZpTT_1500_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['MinBiasHS_13INPUT']={'INPUT':InputInfo(dataSet='/RelValMinBiasHS_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['Higgs200ChargedTaus_13INPUT']={'INPUT':InputInfo(dataSet='/RelValHiggs200ChargedTaus_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 
@@ -421,9 +422,11 @@ steps['RSKKGluon_m3000GeV_13INPUT']={'INPUT':InputInfo(dataSet='/RelValRSKKGluon
 steps['BuJpsiK_13INPUT']={'INPUT':InputInfo(dataSet='/RelValBuJpsiK_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['Cosmics_UP15INPUT']={'INPUT':InputInfo(dataSet='/RelValCosmics_UP15/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['BeamHalo_13INPUT']={'INPUT':InputInfo(dataSet='/RelValBeamHalo_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
-steps['HSCPstop_M_200_13TeVINPUT']={'INPUT':InputInfo(dataSet='/RelValHSCPstop_M_200_13TeV/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
-steps['RSGravitonToGaGa_13TeVINPUT']={'INPUT':InputInfo(dataSet='/RelValRSGravitonToGaGa_13TeV/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
-steps['WpToENu_M-2000_13TeVINPUT']={'INPUT':InputInfo(dataSet='/RelValWpToENu_M-2000_13TeV/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+#Comment for now, remove TeV out from dataset in future
+steps['HSCPstop_M_200_13INPUT']={'INPUT':InputInfo(dataSet='/RelValHSCPstop_M_200_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+steps['RSGravitonToGaGa_13INPUT']={'INPUT':InputInfo(dataSet='/RelValRSGravitonToGaGa_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+steps['WpToENu_M-2000_13INPUT']={'INPUT':InputInfo(dataSet='/RelValWpToENu_M-2000_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+steps['DisplacedSUSY_stopToBottom_M_300_1000mm_13INPUT']={'INPUT':InputInfo(dataSet='/RelValDisplacedSUSY_stopToBottom_M_300_1000mm_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 
 # particle guns with postLS1 geometry recycle GEN-SIM input
 steps['SingleElectronPt10_UP15INPUT']={'INPUT':InputInfo(dataSet='/RelValSingleElectronPt10_UP15/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
@@ -575,7 +578,7 @@ hiDefaults2011=merge([hiAlca2011,{'--scenario':'HeavyIons','-n':2,'--beamspot':'
 hiDefaults=merge([hiAlca,{'--scenario':'HeavyIons','-n':2,'--beamspot':'NominalHICollision2015'}])
 
 steps['HydjetQ_MinBias_5020GeV']=merge([{'-n':1},hiDefaults,genS('Hydjet_Quenched_MinBias_5020GeV_cfi',U2000by1)])
-steps['HydjetQ_MinBias_5020GeVINPUT']={'INPUT':InputInfo(dataSet='/RelValHydjetQ_MinBias_5020GeV/%s/GEN-SIM'%(baseDataSetRelease[8],),location='STD',split=5)}
+steps['HydjetQ_MinBias_5020GeVINPUT']={'INPUT':InputInfo(dataSet='/RelValHydjetQ_MinBias_5020GeV/%s/GEN-SIM'%(baseDataSetRelease[9],),location='STD',split=5)}
 
 steps['HydjetQ_MinBias_2760GeV']=merge([{'-n':1},hiDefaults2011,genS('Hydjet_Quenched_MinBias_2760GeV_cfi',U2000by1)])
 steps['HydjetQ_MinBias_2760GeVINPUT']={'INPUT':InputInfo(dataSet='/RelValHydjetQ_MinBias_2760GeV/%s/GEN-SIM'%(baseDataSetRelease[1],),location='STD',split=5)}
@@ -665,7 +668,7 @@ steps['SingleMuPt100FS_UP15']=merge([{'cfg':'SingleMuPt100_pythia8_cfi'},step1Fa
 steps['MinBiasFS_13_ForMixing']=merge([{'cfg':'MinBias_13TeV_pythia8_TuneCUETP8M1_cfi'},Kby(100,1000),step1FastPUNewMixing])
 
 ### FastSim: template to produce signal and overlay with minbias events
-PUFS25={'--pileup':'AVE_35_BX_25ns','--pileup_input':'das:/RelValMinBiasFS_13_ForMixing/CMSSW_7_5_0_pre5-MCRUN2_75_V5_FastSim-v1/GEN-SIM-RECO'}
+PUFS25={'--pileup':'AVE_35_BX_25ns','--pileup_input':'das:/RelValMinBiasFS_13_ForMixing/%s/GEN-SIM-RECO'%(baseDataSetRelease[7],)}
 FS_UP15_PU25_OVERLAY = merge([PUFS25,Kby(100,500),steps['TTbarFS_13']] )
 
 ### FastSim: produce sample of premixed minbias events
@@ -685,7 +688,7 @@ steps["FS_PREMIXUP15_PU25"] = merge([
 FS_PREMIXUP15_PU25_OVERLAY = merge([
         {"-s" : "GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION",
          "--datamix" : "PreMix",
-         "--pileup_input" : "dbs:/RelValFS_PREMIXUP15_PU25/CMSSW_7_5_0_pre4-PU25ns_MCRUN2_75_V1_FastSim-v2/GEN-SIM-DIGI-RAW", ##NEED CHANGE to pre5 which is not exist yet?
+         "--pileup_input" : "dbs:/RelValFS_PREMIXUP15_PU25/%s/GEN-SIM-DIGI-RAW"%(baseDataSetRelease[8],), 
          "--customise":"SLHCUpgradeSimulations/Configuration/postLS1CustomsPreMixing.customisePostLS1"
          },
         Kby(100,500),step1FastUpg2015Defaults])
@@ -828,7 +831,7 @@ PU={'-n':10,'--pileup':'default','--pileup_input':'das:/RelValMinBias/%s/GEN-SIM
 PU2={'-n':10,'--pileup':'default','--pileup_input':'das:/RelValMinBias/%s/GEN-SIM'%(baseDataSetRelease[0],)}
 PU25={'-n':10,'--pileup':'AVE_35_BX_25ns','--pileup_input':'das:/RelValMinBias_13/%s/GEN-SIM'%(baseDataSetRelease[3],)}
 PU50={'-n':10,'--pileup':'AVE_35_BX_50ns','--pileup_input':'das:/RelValMinBias_13/%s/GEN-SIM'%(baseDataSetRelease[3],)}
-PUHI={'-n':10,'--pileup_input':'das:/RelValHydjetQ_MinBias_5020GeV/%s/GEN-SIM'%(baseDataSetRelease[8])}
+PUHI={'-n':10,'--pileup_input':'das:/RelValHydjetQ_MinBias_5020GeV/%s/GEN-SIM'%(baseDataSetRelease[9])}
 
 
 #PU for FastSim
@@ -1195,7 +1198,7 @@ steps['ALCAHARVD3']={'-s':'ALCAHARVEST:SiStripGains',
 
 
 steps['RECOHISt4']=steps['RECOHI']
-steps['RECOHIMIX']=merge([steps['RECOHI'],{'--pileup':'HiMix','--pileup_input':'das:/RelValHydjetQ_MinBias_5020GeV/%s/GEN-SIM'%(baseDataSetRelease[8])}])
+steps['RECOHIMIX']=merge([steps['RECOHI'],{'--pileup':'HiMix','--pileup_input':'das:/RelValHydjetQ_MinBias_5020GeV/%s/GEN-SIM'%(baseDataSetRelease[9])}])
 
 steps['ALCANZS']=merge([{'-s':'ALCA:HcalCalMinBias','--mc':''},step4Defaults])
 steps['HARVESTGEN']={'-s':'HARVESTING:genHarvesting',
