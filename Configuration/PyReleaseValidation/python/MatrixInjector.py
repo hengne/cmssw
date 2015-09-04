@@ -86,7 +86,7 @@ class MatrixInjector(object):
         self.defaultChain={
             "RequestType" :    "TaskChain",                    #this is how we handle relvals
             "SubRequestType" : "RelVal",                       #this is how we handle relvals, now that TaskChain is also used for central MC production
-            "RequestPriority": 501000,
+            "RequestPriority": 600000,
             "Requestor": self.user,                           #Person responsible
             "Group": self.group,                              #group for the request
             "CMSSWVersion": os.getenv('CMSSW_VERSION'),       #CMSSW Version (used for all tasks in chain)
@@ -250,7 +250,7 @@ class MatrixInjector(object):
                                 if len(nextHasDSInput.run):
                                     chainDict['nowmTasklist'][-1]['RunWhitelist']=nextHasDSInput.run
                                 if len(nextHasDSInput.ls):
-                                    chainDict['nowmTasklist'][-1]['lumis']=nextHasDSInput.ls
+                                    chainDict['nowmTasklist'][-1]['LumiList']=nextHasDSInput.ls
                                 #print "what is s",s[2][index]
                                 if '--data' in s[2][index] and nextHasDSInput.label:
                                     thisLabel+='_RelVal_%s'%nextHasDSInput.label
