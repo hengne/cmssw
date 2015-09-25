@@ -736,7 +736,8 @@ step2Upg2015Defaults = {'-s'     :'DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relval25ns,
                  '--datatier'    :'GEN-SIM-DIGI-RAW-HLTDEBUG',
                  '--eventcontent':'FEVTDEBUGHLT',
                  '--customise'   :'SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,SLHCUpgradeSimulations/Configuration/postLS1Customs.customise_New_HCAL',
-                 '-n'            :'10'
+                 '-n'            :'10',
+                 '--dump_python' :''
                   }
 step2Upg2015Defaults50ns = merge([{'-s':'DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relval50ns,RAW2DIGI,L1Reco','--conditions':'auto:run2_mc_'+autoHLT['relval50ns'],'--customise':'SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1_50ns,SLHCUpgradeSimulations/Configuration/postLS1Customs.customise_New_HCAL'},step2Upg2015Defaults])
 
@@ -813,6 +814,7 @@ dataReco={ '--runUnscheduled':'',
           '--datatier':'RECO,MINIAOD,DQMIO',
           '--eventcontent':'RECO,MINIAOD,DQM',
           '--data':'',
+          '--dump_python':'',
           '--process':'reRECO',
           '--scenario':'pp',
           }
@@ -826,6 +828,7 @@ steps['HLTD']=merge([{'--process':'reHLT',
                       '-s':'L1REPACK,HLT:@%s'%hltKey,
                       '--conditions':'auto:run1_hlt_%s'%menu,
                       '--data':'',
+                      '--dump_python':'',
                       '--output':'\'[{"e":"RAW","t":"RAW","o":["drop FEDRawDataCollection_rawDataCollector__LHC"]}]\'',
                       },])
 steps['HLTDSKIM']=merge([{'--inputCommands':'"keep *","drop *_*_*_RECO"'},steps['HLTD']])
@@ -915,7 +918,8 @@ step3Up2015Defaults = {
     '-n':'10',
     '--datatier':'GEN-SIM-RECO,MINIAODSIM,DQMIO',
     '--eventcontent':'RECOSIM,MINIAODSIM,DQM',
-    '--customise' : 'SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,SLHCUpgradeSimulations/Configuration/postLS1Customs.customise_New_HCAL'
+    '--customise' : 'SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,SLHCUpgradeSimulations/Configuration/postLS1Customs.customise_New_HCAL',
+    '--dump_python': ''
     }
 
 step3Up2015Defaults50ns = merge([{'--conditions':'auto:run2_mc_'+autoHLT['relval50ns'],'--customise':'SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1_50ns,SLHCUpgradeSimulations/Configuration/postLS1Customs.customise_New_HCAL'},step3Up2015Defaults])
@@ -928,6 +932,7 @@ step3Up2015Hal = {'-s'            :'RAW2DIGI,L1Reco,RECO,EI,VALIDATION,DQM',
                  '--datatier'     :'GEN-SIM-RECO,DQMIO',
                   '--eventcontent':'RECOSIM,DQM',
                   '-n'            :'10',
+                 '--dump_python'  :'',
                  '--customise'    :'SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,SLHCUpgradeSimulations/Configuration/postLS1Customs.customise_New_HCAL'
                  }
 
@@ -1047,6 +1052,7 @@ step4Up2015Defaults = {
                         '--customise'   : 'SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,SLHCUpgradeSimulations/Configuration/postLS1Customs.customise_New_HCAL',
                         '--datatier'    : 'ALCARECO',
                         '--eventcontent': 'ALCARECO',
+                        '--dump_python' : '',
                   }
 
 steps['RERECOPU']=steps['RERECOPU1']
@@ -1110,6 +1116,7 @@ steps['HARVESTGEN2']=merge([{'--filein':'file:step2_inDQM.root'},steps['HARVESTG
 steps['HARVESTD']={'-s':'HARVESTING:@standardDQM+@miniAODDQM',
                    '--conditions':'auto:run1_data',
                    '--data':'',
+                   '--dump_python':'',
                    '--filetype':'DQM',
                    '--scenario':'pp'}
 
@@ -1148,6 +1155,7 @@ steps['HARVESTCOS']={'-s':'HARVESTING:dqmHarvesting',
 steps['HARVESTHAL']={'-s'          :'HARVESTING:dqmHarvesting',
                      '--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
                      '--mc'        :'',
+                     '--dump_python':'',
                      '--filein'    :'file:step3_inDQM.root',
                      '--scenario'    :'cosmics',
                      '--filein':'file:step3_inDQM.root', # unnnecessary
@@ -1172,6 +1180,7 @@ steps['HARVESTUP15']={
     '-s':'HARVESTING:@standardValidation+@standardDQM+@miniAODValidation+@miniAODDQM', # todo: remove UP from label
     '--conditions':'auto:run2_mc_'+autoHLT['relval25ns'], 
     '--mc':'',
+    '--dump_python':'',
     '--customise' : 'SLHCUpgradeSimulations/Configuration/postLS1Customs.customisePostLS1,SLHCUpgradeSimulations/Configuration/postLS1Customs.customise_New_HCAL',
     '--filetype':'DQM',
     }
