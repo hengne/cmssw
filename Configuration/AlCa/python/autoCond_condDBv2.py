@@ -20,8 +20,7 @@ autoCond = {
     # GlobalTag for Run1 data reprocessing
     'run1_data'         :   '74X_dataRun1_v3',
     # GlobalTag for Run2 data reprocessing
-    #'run2_data'         :   '74X_dataRun2_v3',
-    'run2_data'         :   '74X_dataRun2_Prompt_v4',
+    'run2_data'         :   '74X_dataRun2_v3',
     # GlobalTag for Run1 HLT
     'run1_hlt'          :   '74X_dataRun1_HLT_frozen_v2',
     # GlobalTag for Run2 HLT
