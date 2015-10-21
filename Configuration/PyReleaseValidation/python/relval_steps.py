@@ -1244,6 +1244,7 @@ steps['HARVESTDBLMINIAODUP15']={
     '--mc':'',
     '--era' : 'Run2_25ns',
     '--filetype':'DQM',
+    '--filtername':'miniAOD'
     }
 
 steps['HARVESTUP15_PU25']=steps['HARVESTUP15']
@@ -1348,7 +1349,9 @@ steps['MINIAODMCUP15FS50'] =merge([{'--conditions':'auto:run2_mc_50ns','--era':'
 steps['DBLMINIAODMCUP15'] =merge([{'--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
                                    '-s':'PAT,DQM:@miniAODDQM',
                                    '--datatier' : 'MINIAODSIM,DQMIO',
-                                   '--eventcontent':'MINIAOD,DQM'},stepMiniAODMC])
+                                   '--eventcontent':'MINIAOD,DQM',
+                                   '--filtername':'miniAOD'
+                                   },stepMiniAODMC])
 
 #################################################################################
 ####From this line till the end of the file :
