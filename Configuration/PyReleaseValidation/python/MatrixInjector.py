@@ -181,6 +181,9 @@ class MatrixInjector(object):
             wmsplit['RECODR225nsreHLT']=1
             wmsplit['HLTDR250ns']=3
             wmsplit['HLTDR225ns']=3
+            wmsplit['DIGIUP15']=5
+            wmsplit['RECOUP15']=5
+            wmsplit['DBLMINIAODMCUP15']=5
                                     
             #import pprint
             #pprint.pprint(wmsplit)            
