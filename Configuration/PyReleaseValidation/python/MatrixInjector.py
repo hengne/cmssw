@@ -307,6 +307,11 @@ class MatrixInjector(object):
                                 #chainDict['nowmTasklist'][-1]['AcquisitionEra']=(chainDict['CMSSWVersion']+'-PU_'+chainDict['nowmTasklist'][-1]['GlobalTag']).replace('::All','')+thisLabel
                                 chainDict['nowmTasklist'][-1]['AcquisitionEra']=chainDict['CMSSWVersion']
                                 chainDict['nowmTasklist'][-1]['ProcessingString']=processStrPrefix+chainDict['nowmTasklist'][-1]['GlobalTag'].replace('::All','')+thisLabel
+  
+                            # specify different ProcessingString for double miniAOD dataset
+                            if ('DBLMINIAODMCUP15' in step) or ('HARVESTDBLMINIAODUP15' in step): 
+                                chainDict['nowmTasklist'][-1]['ProcessingString']=chainDict['nowmTasklist'][-1]['ProcessingString']+'_miniAOD' 
+
                              
                         index+=1
                     #end of loop through steps
