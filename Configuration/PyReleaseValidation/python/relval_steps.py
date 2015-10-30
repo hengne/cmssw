@@ -1353,6 +1353,10 @@ steps['DBLMINIAODMCUP15'] =merge([{'--conditions':'auto:run2_mc_'+autoHLT['relva
                                    '--eventcontent':'MINIAOD,DQM',
                                    #'--filtername':'miniAOD'
                                    },stepMiniAODMC])
+steps['DBLMINIAODMCUP15NODQM'] = merge([{'--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
+                                   '-s':'PAT',
+                                   '--datatier' : 'MINIAODSIM',
+                                   '--eventcontent':'MINIAOD',},stepMiniAODMC])
 
 #################################################################################
 ####From this line till the end of the file :
