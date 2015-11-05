@@ -144,6 +144,10 @@ workflows[134.910] = ['',['RunSingleMu2015D','HLTDR225ns','RECODR225nsreHLT','HA
 workflows[134.911] = ['',['RunSinglePh2015D','HLTDR225ns','RECODR225nsreHLT','HARVESTDR225nsreHLT']]
 workflows[134.912] = ['',['RunZeroBias2015D','HLTDR225ns','RECODR225nsreHLT','HARVESTDR225nsreHLT']]
 
+
+### HighStats HLT Physics 2015D ###
+workflows[134.99901] = ['',['RunHLTPhy2015DHS','HLTDR225ns','RECODR225nsreHLT','HARVESTDR225nsreHLT']]
+
 ### fastsim ###
 workflows[5.1] = ['TTbar', ['TTbarFS','HARVESTFS']]
 workflows[5.2] = ['SingleMuPt10', ['SingleMuPt10FS','HARVESTFS']]
