@@ -181,8 +181,8 @@ class MatrixInjector(object):
             wmsplit['TTbarFS_ID']=1
             wmsplit['RECODR2_50nsreHLT']=1
             wmsplit['RECODR2_25nsreHLT']=1
-            wmsplit['HLTDR2_50ns']=3
-            wmsplit['HLTDR2_25ns']=3
+            wmsplit['HLTDR2_50ns']=1
+            wmsplit['HLTDR2_25ns']=1
             wmsplit['Hadronizer']=1
             wmsplit['DIGIUP15']=5
             wmsplit['RECOUP15']=5
