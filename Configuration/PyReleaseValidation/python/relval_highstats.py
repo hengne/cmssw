@@ -69,3 +69,8 @@ workflows[132]=['',['LM9p','DIGI','RECO']]
 workflows[133]=['',['RSGrav','DIGI','RECO']]
 
 workflows[134]=['MinimumBiasBS',['RunMinBias2011B','RECOD','ALCAPROMPT','ALCAHARVD']]
+
+
+## 13 TeV Run2 fullSim noPU
+workflows[139903] = ['', ['ZEE_13_HS']]
+
