@@ -285,6 +285,7 @@ baseDataSetRelease=[
     'CMSSW_7_6_0_pre6-76X_mcRun2_HeavyIon_v4-v1', 	           # 9 - Run2 HI GEN-SIM
     'CMSSW_7_6_0-76X_mcRun2_asymptotic_v11-v1',                    # 10 - 13 TeV High Stats GEN-SIM
     'CMSSW_7_6_0_pre7-76X_mcRun2_asymptotic_v9_realBS-v1',         # 11 - 13 TeV High Stats MiniBias for mixing GEN-SIM
+    'CMSSW_7_6_0-76X_mcRun2_asymptotic_v11-v1',                # 12 - RE-MINIAOD RECO input 
     ]
 
 # note: INPUT commands to be added once GEN-SIM w/ 13TeV+PostLS1Geo will be available 
@@ -386,6 +387,11 @@ steps['SingleMuPt10_UP15INPUT']={'INPUT':InputInfo(dataSet='/RelValSingleMuPt10_
 steps['SingleMuPt100_UP15INPUT']={'INPUT':InputInfo(dataSet='/RelValSingleMuPt100_UP15/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['SingleMuPt1000_UP15INPUT']={'INPUT':InputInfo(dataSet='/RelValSingleMuPt1000_UP15/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['NuGun_UP15INPUT']={'INPUT':InputInfo(dataSet='/RelValNuGun_UP15/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+
+# re-miniAOD reco input
+steps['ZEE_13_REMINIAODINPUT']={'INPUT':InputInfo(dataSet='/RelValZEE_13/%s/GEN-SIM-RECO'%(baseDataSetRelease[12],),location='STD')}
+steps['ZTT_13_REMINIAODINPUT']={'INPUT':InputInfo(dataSet='/RelValZTT_13/%s/GEN-SIM-RECO'%(baseDataSetRelease[12],),location='STD')}
+steps['ZMM_13_REMINIAODINPUT']={'INPUT':InputInfo(dataSet='/RelValZMM_13/%s/GEN-SIM-RECO'%(baseDataSetRelease[12],),location='STD')}
 
 #input for fast sim workflows to be added - TODO
 
@@ -1279,6 +1285,16 @@ steps['HARVESTUP15FS']={'-s':'HARVESTING:validationHarvestingFS',
                         '--filetype':'DQM',
                         '--scenario':'pp'}
 
+steps['HARVESTREMINIAOD']={
+    '-s':'HARVESTING:@miniAODDQM', 
+    '--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
+    '--mc':'',
+    '--era' : 'Run2_25ns',
+    '--filetype':'DQM',
+    }
+
+
+
 
 steps['ALCASPLIT']={'-s':'ALCAOUTPUT:@allForPrompt',
                     '--conditions':'auto:run1_data',
@@ -1369,6 +1385,13 @@ steps['DBLMINIAODMCUP15NODQM'] = merge([{'--conditions':'auto:run2_mc_'+autoHLT[
                                    '-s':'PAT',
                                    '--datatier' : 'MINIAODSIM',
                                    '--eventcontent':'MINIAOD',},stepMiniAODMC])
+
+steps['REMINIAOD'] = merge([{'--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
+                                   '--runUnscheduled':'',
+                                   '-s':'PAT,DQM:@miniAODDQM',
+                                   '--datatier' : 'MINIAODSIM,DQMIO',
+                                   '--eventcontent':'MINIAODSIM,DQM',},stepMiniAODMC])
+
 
 #################################################################################
 ####From this line till the end of the file :
