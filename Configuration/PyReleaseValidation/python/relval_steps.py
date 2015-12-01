@@ -1300,7 +1300,10 @@ steps['HARVESTREMINIAOD']={
     '--filetype':'DQM',
     }
 
-steps['HARVESTREMINIAODPROD']=steps['HARVESTREMINIAOD']
+steps['HARVESTREMINIAODPROD']=merge([{
+                                #'-s':'HARVESTING:@miniAODValidation+@miniAODDQM',
+                                '-s':'HARVESTING:@miniAODDQM',
+                               }, steps['HARVESTREMINIAOD']])
 
 
 steps['ALCASPLIT']={'-s':'ALCAOUTPUT:@allForPrompt',
@@ -1401,7 +1404,12 @@ steps['REMINIAOD'] = merge([{'--conditions':'auto:run2_mc_'+autoHLT['relval25ns'
 
 
 ## re-miniAOD for Prod tests
-steps['REMINIAODPROD']=merge([{ '-s':'PAT,DQM:@miniAODDQM','--datatier':'MINIAODSIM,DQMIO','--eventcontent':'MINIAODSIM,DQM'},step3Up2015Defaults])
+steps['REMINIAODPROD']=merge([{ 
+                    #'-s':'PAT,DQM:@miniAODDQM,VALIDATION:@miniAODValidation',
+                    '-s':'PAT,DQM:@miniAODDQM',
+                    '--datatier':'MINIAODSIM,DQMIO',
+                    '--eventcontent':'MINIAODSIM,DQM'
+                    },step3Up2015Defaults])
 
 
 #################################################################################
