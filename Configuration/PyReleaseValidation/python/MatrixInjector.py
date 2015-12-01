@@ -188,6 +188,8 @@ class MatrixInjector(object):
             wmsplit['RECOUP15']=5
             wmsplit['RECOAODUP15']=5
             wmsplit['DBLMINIAODMCUP15NODQM']=5
+            wmsplit['REMINIAODPROD']=1
+            wmsplit['REMINIAOD']=1
                                     
             #import pprint
             #pprint.pprint(wmsplit)            
@@ -216,7 +218,10 @@ class MatrixInjector(object):
                     # for double miniAOD test
                     if len( [step for step in s[3] if "DBLMINIAODMCUP15NODQM" in step] )>0:
                         thisLabel=thisLabel+"_dblMiniAOD"
-                    
+                    # for re-miniAOD test
+                    if len( [step for step in s[3] if "REMINIAOD" in step] )>0:
+                        thisLabel=thisLabel+"_ReMiniAOD"
+ 
                     processStrPrefix=''
                     setPrimaryDs=None
                     for step in s[3]:

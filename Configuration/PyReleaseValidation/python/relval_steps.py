@@ -28,6 +28,7 @@ steps['ProdMinBias']=merge([{'cfg':'MinBias_8TeV_pythia8_TuneCUETP8M1_cff','--re
 steps['ProdTTbar']=merge([{'cfg':'TTbar_8TeV_TuneCUETP8M1_cfi','--relval':'9000,100'},step1Defaults])
 steps['ProdQCD_Pt_3000_3500']=merge([{'cfg':'QCD_Pt_3000_3500_8TeV_TuneCUETP8M1_cfi','--relval':'9000,50'},step1Defaults])
 
+
 #### data ####
 Run2010ASk=[138937,138934,138924,138923,139790,139789,139788,139787,144086,144085,144084,144083,144011]
 Run2010BSk=[146644,147115,147929,148822,149011,149181,149182,149291,149294,149442]
@@ -392,6 +393,12 @@ steps['NuGun_UP15INPUT']={'INPUT':InputInfo(dataSet='/RelValNuGun_UP15/%s/GEN-SI
 steps['ZEE_13_REMINIAODINPUT']={'INPUT':InputInfo(dataSet='/RelValZEE_13/%s/GEN-SIM-RECO'%(baseDataSetRelease[12],),location='STD')}
 steps['ZTT_13_REMINIAODINPUT']={'INPUT':InputInfo(dataSet='/RelValZTT_13/%s/GEN-SIM-RECO'%(baseDataSetRelease[12],),location='STD')}
 steps['ZMM_13_REMINIAODINPUT']={'INPUT':InputInfo(dataSet='/RelValZMM_13/%s/GEN-SIM-RECO'%(baseDataSetRelease[12],),location='STD')}
+
+# re-miniAOD reco input for production tests
+steps['ProdMinBias_13_MINIAOD']={'INPUT':InputInfo(dataSet='/RelValProdMinBias_13/%s/AODSIM'%(baseDataSetRelease[12],),location='STD')}
+steps['ProdTTbar_13_MINIAOD']={'INPUT':InputInfo(dataSet='/RelValProdTTbar_13/%s/AODSIM'%(baseDataSetRelease[12],),location='STD')}
+steps['ProdQCD_Pt_3000_3500_13_MINIAOD']={'INPUT':InputInfo(dataSet='/RelValProdQCD_Pt_3000_3500_13/%s/AODSIM'%(baseDataSetRelease[12],),location='STD')}
+
 
 #input for fast sim workflows to be added - TODO
 
@@ -1293,7 +1300,7 @@ steps['HARVESTREMINIAOD']={
     '--filetype':'DQM',
     }
 
-
+steps['HARVESTREMINIAODPROD']=steps['HARVESTREMINIAOD']
 
 
 steps['ALCASPLIT']={'-s':'ALCAOUTPUT:@allForPrompt',
@@ -1391,6 +1398,10 @@ steps['REMINIAOD'] = merge([{'--conditions':'auto:run2_mc_'+autoHLT['relval25ns'
                                    '-s':'PAT,DQM:@miniAODDQM',
                                    '--datatier' : 'MINIAODSIM,DQMIO',
                                    '--eventcontent':'MINIAODSIM,DQM',},stepMiniAODMC])
+
+
+## re-miniAOD for Prod tests
+steps['REMINIAODPROD']=merge([{ '-s':'PAT,DQM:@miniAODDQM','--datatier':'MINIAODSIM,DQMIO','--eventcontent':'MINIAODSIM,DQM'},step3Up2015Defaults])
 
 
 #################################################################################

@@ -22,6 +22,11 @@ workflows[1302] = ['', ['ProdTTbar_13','DIGIUP15PROD1','RECOPRODUP15']]
 workflows[1303] = ['', ['ProdQCD_Pt_3000_3500_13','DIGIUP15PROD1','RECOPRODUP15']]
 workflows.addOverride(1303,overridesEv5)
 
+## re-miniAOD of the production tests
+workflows[13011] = ['', ['ProdMinBias_13_MINIAOD','REMINIAODPROD','HARVESTREMINIAODPROD']] 
+workflows[13021] = ['', ['ProdTTbar_13_MINIAOD','REMINIAODPROD','HARVESTREMINIAODPROD']]
+workflows[13031] = ['', ['ProdQCD_Pt_3000_3500_13_MINIAOD','REMINIAODPROD','HARVESTREMINIAODPROD']]
+
 ### data ###
 workflows[4.5]  = ['', ['RunCosmicsA','RECOCOSD','ALCACOSD','HARVESTDC']]
 #workflows[4.6]  = ['', ['MinimumBias2010A','RECOD','HARVESTD']]
