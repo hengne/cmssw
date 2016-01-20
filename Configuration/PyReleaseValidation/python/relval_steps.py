@@ -182,6 +182,14 @@ steps['RunSinglePh2015D']={'INPUT':InputInfo(dataSet='/SinglePhoton/Run2015D-v1/
 steps['RunZeroBias2015D']={'INPUT':InputInfo(dataSet='/ZeroBias/Run2015D-v1/RAW',label='zb2015D',events=100000,location='STD',ib_block='38d4cab6-5d5f-11e5-824b-001e67ac06a0',ls=Run2015D)}
 
 
+#### run2 2015D_0T ####
+# Run2015D_0T: 260036, SingleElectron_0T: 1188305 evts; SinglePhoton_0T: 422216 evts; DoubleEG_0T: 94072 evts 
+Run2015D_0T=selectedLS([260036])
+steps['RunSigEl2015D0T']={'INPUT':InputInfo(dataSet='/SingleElectron_0T/Run2015D-v1/RAW',label='sigEl2015D0T',events=100000,location='STD', ls=Run2015D_0T)}
+steps['RunSigPh2015D0T']={'INPUT':InputInfo(dataSet='/SinglePhoton_0T/Run2015D-v1/RAW',label='sigPh2015D0T',events=100000,location='STD', ls=Run2015D_0T)}
+steps['RunDblEG2015D0T']={'INPUT':InputInfo(dataSet='/DoubleEG_0T/Run2015D-v1/RAW',label='dblEG2015D0T',events=100000,location='STD', ls=Run2015D_0T)}
+
+
 def gen(fragment,howMuch):
     global step1Defaults
     return merge([{'cfg':fragment},howMuch,step1Defaults])
@@ -907,10 +915,15 @@ menuR2_25ns = autoHLT[hltKey25ns]
 steps['HLTDR2_25ns']=merge( [ {'-s':'L1REPACK:GT2,HLT:@%s'%hltKey25ns,},{'--conditions':'auto:run2_hlt_'+menuR2_25ns,},{'--era' : 'Run2_25ns'},steps['HLTD'] ] )
 
 
+# 0T data 
+steps['HLTDR2_0T']=merge( [ {'-s':'L1REPACK:GT2,HLT:@frozen25ns',},{'--conditions':'auto:run2_hlt',},{'--era' : 'Run2_25ns'},steps['HLTD'] ] )
+
+
 # custom function to be put back once the CSC tracked/untracked will have been fixed.. :-)
 steps['RECODR2_50ns']=merge([{'--scenario':'pp','--conditions':'auto:run2_data_'+menuR2_50ns,'--customise':'Configuration/DataProcessing/RecoTLR.customiseDataRun2Common',},dataReco])
 steps['RECODR2_25ns']=merge([{'--scenario':'pp','--conditions':'auto:run2_data_'+menuR2_25ns,'--customise':'Configuration/DataProcessing/RecoTLR.customiseDataRun2Common_25ns',},dataReco])
 
+steps['RECODR2_0T']=merge([{'--scenario':'pp','--conditions':'auto:run2_data','--customise':'Configuration/DataProcessing/RecoTLR.customiseDataRun2Common_25ns',},dataReco])
 
 steps['RECODR2AlCaEle']=merge([{'--scenario':'pp','--conditions':'auto:run2_data','--customise':'Configuration/DataProcessing/RecoTLR.customisePromptRun2',},dataRecoAlCaCalo])
 
@@ -1181,6 +1194,8 @@ steps['HARVESTD']={'-s':'HARVESTING:@standardDQM+@miniAODDQM',
 steps['HARVESTDreHLT'] = merge([ {'--conditions':'auto:run1_data_%s'%menu}, steps['HARVESTD'] ])
 steps['HARVESTDR2_50nsreHLT'] = merge([ {'--conditions':'auto:run2_data_'+menuR2_50ns,}, steps['HARVESTD'] ])
 steps['HARVESTDR2_25nsreHLT'] = merge([ {'--conditions':'auto:run2_data_'+menuR2_25ns,}, steps['HARVESTD'] ])
+
+steps['HARVESTDR2_0T'] = merge([ {'--conditions':'auto:run2_data',}, steps['HARVESTD'] ])
 
 steps['HARVESTDDQM']=merge([{'-s':'HARVESTING:@common+@muon+@hcal+@jetmet+@ecal'},steps['HARVESTD']])
 
