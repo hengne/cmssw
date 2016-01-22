@@ -148,6 +148,11 @@ workflows[134.911] = ['',['RunSinglePh2015D','HLTDR2_25ns','RECODR2_25nsreHLT','
 workflows[134.912] = ['',['RunZeroBias2015D','HLTDR2_25ns','RECODR2_25nsreHLT','HARVESTDR2_25nsreHLT']]
 
 
+### run 2015C 0T ###
+workflows[134.501] = ['',['RunSigEl2015C0T','HLTDR2_0T','RECODR2_0T','HARVESTDR2_0T']]
+workflows[134.502] = ['',['RunSigPh2015C0T','HLTDR2_0T','RECODR2_0T','HARVESTDR2_0T']]
+workflows[134.503] = ['',['RunDblEG2015C0T','HLTDR2_0T','RECODR2_0T','HARVESTDR2_0T']]
+
 ### run 2015D 0T ###
 workflows[134.601] = ['',['RunSigEl2015D0T','HLTDR2_0T','RECODR2_0T','HARVESTDR2_0T']]
 workflows[134.602] = ['',['RunSigPh2015D0T','HLTDR2_0T','RECODR2_0T','HARVESTDR2_0T']]

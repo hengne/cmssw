@@ -182,6 +182,13 @@ steps['RunSinglePh2015D']={'INPUT':InputInfo(dataSet='/SinglePhoton/Run2015D-v1/
 steps['RunZeroBias2015D']={'INPUT':InputInfo(dataSet='/ZeroBias/Run2015D-v1/RAW',label='zb2015D',events=100000,location='STD',ib_block='38d4cab6-5d5f-11e5-824b-001e67ac06a0',ls=Run2015D)}
 
 
+#### run2 2015C_0T ####
+# Run2015C_0T: 256448, SingleElectron_0T: 1552447  evts; SinglePhoton_0T: 778945 evts; DoubleEG_0T: 58304 evts 
+Run2015C_0T=selectedLS([256448])
+steps['RunSigEl2015C0T']={'INPUT':InputInfo(dataSet='/SingleElectron_0T/Run2015C-v1/RAW',label='sigEl2015C0T',events=100000,location='STD', ls=Run2015C_0T)}
+steps['RunSigPh2015C0T']={'INPUT':InputInfo(dataSet='/SinglePhoton_0T/Run2015C-v1/RAW',label='sigPh2015C0T',events=100000,location='STD', ls=Run2015C_0T)}
+steps['RunDblEG2015C0T']={'INPUT':InputInfo(dataSet='/DoubleEG_0T/Run2015C-v1/RAW',label='dblEG2015C0T',events=100000,location='STD', ls=Run2015C_0T)}
+
 #### run2 2015D_0T ####
 # Run2015D_0T: 260036, SingleElectron_0T: 1188305 evts; SinglePhoton_0T: 422216 evts; DoubleEG_0T: 94072 evts 
 Run2015D_0T=selectedLS([260036])
