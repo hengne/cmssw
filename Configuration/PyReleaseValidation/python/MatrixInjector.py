@@ -105,7 +105,7 @@ class MatrixInjector(object):
             "mergedLFNBase" : "/store/relval",
             "dashboardActivity" : "relval",
             "Multicore" : 1,   # do not set multicore for the whole chain
-            "Memory" : 3000,
+            "Memory" : 3500,
             "SizePerEvent" : 1234,
             "TimePerEvent" : 0.1
             }
@@ -335,7 +335,7 @@ class MatrixInjector(object):
                                 # the scaling factor of 1.2GB / thread is empirical and measured on a SECOND round of tests with PU samples
                                 # the number of threads is NO LONGER assumed to be the same for all tasks
                                 # https://hypernews.cern.ch/HyperNews/CMS/get/edmFramework/3509/1/1/1.html
-                                chainDict['nowmTasklist'][-1]['Memory'] = 3000 + int( chainDict['nowmTasklist'][-1]['Multicore']  -1 )*1200
+                                chainDict['nowmTasklist'][-1]['Memory'] = 3500 + int( chainDict['nowmTasklist'][-1]['Multicore']  -1 )*1200
 
                         index+=1
                     #end of loop through steps
