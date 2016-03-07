@@ -91,7 +91,7 @@ class MatrixInjector(object):
             "Group": self.group,                              #group for the request
             "CMSSWVersion": os.getenv('CMSSW_VERSION'),       #CMSSW Version (used for all tasks in chain)
             "Campaign": os.getenv('CMSSW_VERSION'),           # only for wmstat purpose
-            "ScramArch": os.getenv('SCRAM_ARCH'),             #Scram Arch (used for all tasks in chain)
+            "ScramArch": 'slc6_amd64_gcc493',                 # stick to gcc493 for reqmgr  #os.getenv('SCRAM_ARCH'),             #Scram Arch (used for all tasks in chain)
             "ProcessingVersion": self.version,                #Processing Version (used for all tasks in chain)
             "GlobalTag": None,                                #Global Tag (overridden per task)
             "CouchURL": self.couch,                           #URL of CouchDB containing Config Cache
@@ -111,6 +111,8 @@ class MatrixInjector(object):
             }
 
         self.defaultHarvest={
+            "CMSSWVersion": os.getenv('CMSSW_VERSION'),       #CMSSW Version
+            "ScramArch": os.getenv('SCRAM_ARCH'),             #Scram Arch 
             "EnableHarvesting" : "True",
             "DQMUploadUrl" : self.dqmgui,
             "DQMConfigCacheID" : None,
@@ -118,6 +120,8 @@ class MatrixInjector(object):
             }
         
         self.defaultScratch={
+            "CMSSWVersion": os.getenv('CMSSW_VERSION'),       #CMSSW Version
+            "ScramArch": os.getenv('SCRAM_ARCH'),             #Scram Arch 
             "TaskName" : None,                            #Task Name
             "ConfigCacheID" : None,                   #Generator Config id
             "GlobalTag": None,
@@ -131,6 +135,8 @@ class MatrixInjector(object):
             "KeepOutput" : False
             }
         self.defaultInput={
+            "CMSSWVersion": os.getenv('CMSSW_VERSION'),       #CMSSW Version
+            "ScramArch": os.getenv('SCRAM_ARCH'),             #Scram Arch 
             "TaskName" : "DigiHLT",                                      #Task Name
             "ConfigCacheID" : None,                                      #Processing Config id
             "GlobalTag": None,
@@ -142,6 +148,8 @@ class MatrixInjector(object):
             "KeepOutput" : False
             }
         self.defaultTask={
+            "CMSSWVersion": os.getenv('CMSSW_VERSION'),       #CMSSW Version
+            "ScramArch": os.getenv('SCRAM_ARCH'),             #Scram Arch 
             "TaskName" : None,                                 #Task Name
             "InputTask" : None,                                #Input Task Name (Task Name field of a previous Task entry)
             "InputFromOutputModule" : None,                    #OutputModule name in the input task that will provide files to process
