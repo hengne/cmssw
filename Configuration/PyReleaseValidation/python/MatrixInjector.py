@@ -211,6 +211,9 @@ class MatrixInjector(object):
         acqEra=False
         for (n,dir) in directories.items():
             chainDict=copy.deepcopy(self.defaultChain)
+            # check ScramArch
+            print "chainDict['ScramArch'] = ",chainDict['ScramArch']
+
             print "inspecting",dir
             nextHasDSInput=None
             for (x,s) in mReader.workFlowSteps.items():
@@ -351,6 +354,8 @@ class MatrixInjector(object):
                     if processStrPrefix or thisLabel:
                         chainDict['RequestString']+='_'+processStrPrefix+thisLabel
 
+            # check ScramArch
+            print "chainDict['ScramArch'] = ",chainDict['ScramArch']
                         
                         
             #wrap up for this one
@@ -379,6 +384,11 @@ class MatrixInjector(object):
                                     #t_input.update(copy.deepcopy(self.defaultHarvest))
                                     #t_input['DQMConfigCacheID']=t_second['ConfigCacheID']
                                 break
+
+            # re-set ScramArch to slc6_amd64_gcc493 for reqMgr to work.
+            chainDict['ScramArch'] = 'slc6_amd64_gcc493'
+
+            print "chainDict['ScramArch'] = ",chainDict['ScramArch']
 
             ## there is in fact only one acquisition era
             #if len(set(chainDict['AcquisitionEra'].values()))==1:
@@ -413,7 +423,9 @@ class MatrixInjector(object):
             chainDict.pop('nowmTasklist')
             self.chainDicts[n]=chainDict
 
-            
+            # check ScramArch
+            print "chainDict['ScramArch'] = ",chainDict['ScramArch']
+
         return 0
 
     def uploadConf(self,filePath,label,where):
