@@ -288,8 +288,8 @@ baseDataSetRelease=[
                                                             # THIS ABOVE IS NOT USED, AT THE MOMENT
     'CMSSW_7_6_0_pre7-76X_mcRun2_asymptotic_v9_realBS-v1',         # 3 - 13 TeV samples with GEN-SIM from 750_p4; also GEN-SIM-DIGI-RAW-HLTDEBUG for id tests
     'CMSSW_7_3_0_pre1-PRE_LS172_V15_FastSim-v1',                   # 4 - fast sim GEN-SIM-DIGI-RAW-HLTDEBUG for id tests
-    'CMSSW_8_0_0-PU25ns_80X_mcRun2_asymptotic_v4-v1',      # 5 - fullSim PU 25ns premix for 800pre6
-    'CMSSW_8_0_0-PU50ns_80X_mcRun2_startup_v4-v1',         # 6 - fullSim PU 50ns premix for 800pre6
+    'CMSSW_8_0_1-PU25ns_80X_mcRun2_asymptotic_v6_gcc530-v1',      # 5 - fullSim PU 25ns premix for 800pre6
+    'CMSSW_8_0_1-PU50ns_80X_mcRun2_startup_v6_gcc530-v1',         # 6 - fullSim PU 50ns premix for 800pre6
     'CMSSW_8_0_1-80X_mcRun2_asymptotic_v6_gcc530_FastSim-v1',         # 7 - fastSim MinBias for mixing for 800pre6
     'CMSSW_8_0_0-PU25ns_80X_mcRun2_asymptotic_v4_FastSim-v2', # 8 - fastSim premixed MinBias for 800pre6 
     'CMSSW_7_6_0_pre6-76X_mcRun2_HeavyIon_v4-v1', 	           # 9 - Run2 HI GEN-SIM
