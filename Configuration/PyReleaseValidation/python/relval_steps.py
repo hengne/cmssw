@@ -1360,6 +1360,13 @@ steps['HARVESTUP15FS']={'-s':'HARVESTING:validationHarvesting',
                         '--filetype':'DQM',
                         '--scenario':'pp'}
 
+steps['HARVESTMINIAOD']={
+    '-s':'HARVESTING:@miniAODDQM', 
+    '--conditions':'auto:run2_mc',
+    '--mc':'',
+    '--era' : 'Run2_25ns',
+    '--filetype':'DQM',
+    }
 
 steps['ALCASPLIT']={'-s':'ALCAOUTPUT:@allForPrompt',
                     '--conditions':'auto:run1_data',
@@ -1429,13 +1436,15 @@ try : stepMiniAODData = remove(stepMiniAODDataUP15,'--era')
 except : stepMiniAODData = remove(stepMiniAODDataUP15,'--customise')
 
 
-stepMiniAODMC = merge([{'--conditions'   : 'auto:run2_mc',
+stepMiniAODMC = merge([{'-s'             : 'PAT,VALIDATION:@miniAODValidation,DQM:@miniAODDQM',
+                        '--conditions'   : 'auto:run2_mc',
                         '--mc'           : '',
                         '--era'          : 'Run2_25ns',
-                        '--datatier'     : 'MINIAODSIM',
-                        '--eventcontent' : 'MINIAODSIM',
+                        '--datatier'     : 'MINIAODSIM,DQMIO',
+                        '--eventcontent' : 'MINIAODSIM,DQM',
                         '--filein'       :'file:step3.root'
                         },stepMiniAODDefaults])
+
 
 #steps['MINIAODDATA']       =merge([stepMiniAODData])
 #steps['MINIAODDreHLT']     =merge([{'--conditions':'auto:run1_data_%s'%menu},stepMiniAODData])
