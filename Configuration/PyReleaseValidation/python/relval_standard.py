@@ -146,6 +146,9 @@ workflows[134.910] = ['',['RunSingleMu2015D','HLTDR2_25ns','RECODR2_25nsreHLT','
 workflows[134.911] = ['',['RunSinglePh2015D','HLTDR2_25ns','RECODR2_25nsreHLT','HARVESTDR2_25nsreHLT']]
 workflows[134.912] = ['',['RunZeroBias2015D','HLTDR2_25ns','RECODR2_25nsreHLT','HARVESTDR2_25nsreHLT']]
 
+### run 2015D 25ns re-reco test  ###
+workflows[134.913] = ['',['RunJetHT2015DReReco','HLTDR2_25ns','RECOOnlyDR2_25nsreHLT', 'MINIAODDR2_25nsreHLT', 'HARVESTMINIAODDR2_25nsreHLT']]
+
 ### fastsim ###
 workflows[5.1] = ['TTbar', ['TTbarFS','HARVESTFS']]
 workflows[5.2] = ['SingleMuPt10', ['SingleMuPt10FS','HARVESTFS']]
