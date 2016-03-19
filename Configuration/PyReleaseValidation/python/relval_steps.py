@@ -934,7 +934,7 @@ steps['DIGIUP15']=merge([step2Upg2015Defaults])
 
 steps['DIGIUP15_reHLT']={'-s'     :'DIGI,L1,DIGI2RAW',
                  '--conditions'  :'auto:run2_mc_'+autoHLT['relval25ns'],
-                 '--datatier'    :'RAWSIM',
+                 '--datatier'    :'GEN-SIM-RAW',
                  '--eventcontent':'RAWSIM',
                  '--era'         :'Run2_25ns',
                  '-n'            :'10'
@@ -1147,7 +1147,7 @@ steps['RECOUP15_reHLT'] = {
     '--runUnscheduled':'',
     '--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
     '-n':'10',
-    '--datatier':'RAWAODSIM',
+    '--datatier':'GEN-SIM-DIGI-RAW',
     '--eventcontent':'RAWAODSIM',
     '--era' : 'Run2_25ns'
     }
