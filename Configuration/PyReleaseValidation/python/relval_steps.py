@@ -1152,6 +1152,18 @@ steps['RECOUP15_reHLT'] = {
     '--era' : 'Run2_25ns'
     }
 
+
+steps['RECOMINIAODUP15_reHLT'] = {
+    '-s':'RAW2DIGI,L1Reco,RECO,EI,PAT,VALIDATION:@standardValidation+@miniAODValidation,DQM:@standardDQM+@miniAODDQM',
+    '--runUnscheduled':'',
+    '--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
+    '-n':'10',
+    '--datatier':'GEN-SIM-DIGI-RAW,MINIAODSIM,DQMIO',
+    '--eventcontent':'RAWAODSIM,MINIAODSIM,DQM',
+    '--era' : 'Run2_25ns'
+    }
+
+
 steps['REHLTUP15_reHLT'] = {
       '-s':'L1REPACK,HLT:@relval25ns',
       '--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
@@ -1414,6 +1426,14 @@ steps['HARVESTUP15']={
 
 steps['HARVESTMINIAODUP15_reHLT']={
     '-s':'HARVESTING:@miniAODValidation+@miniAODDQM',
+    '--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
+    '--mc':'',
+    '--era' : 'Run2_25ns',
+    '--filetype':'DQM',
+    }
+
+steps['HARVESTAODMINIAODUP15_reHLT']={
+    '-s':'HARVESTING:@standardValidation+@standardDQM+@miniAODValidation+@miniAODDQM',
     '--conditions':'auto:run2_mc_'+autoHLT['relval25ns'],
     '--mc':'',
     '--era' : 'Run2_25ns',
