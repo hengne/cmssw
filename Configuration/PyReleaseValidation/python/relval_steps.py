@@ -640,8 +640,9 @@ for x in fs_proclist:
     steps[key] = merge([FS_PREMIXUP15_PU25_OVERLAY,{"cfg":steps[x]["cfg"]}])
 
 # Susy Signal Test framgements
-steps['SusySignalTest1']=gen2015('randomizedParametersSLHAwmLHE.py',Kby(9,50))
-steps['SusySignalTest2']=gen2015('randomizedParametersSLHALHE.py',Kby(9,50))
+steps['SusySignalTest1']=gen2015('SusySignalTest1_cfi',Kby(9,50))
+steps['SusySignalTest2']=gen2015('SusySignalTest2_cfi',Kby(9,50))
+steps['SusySignalTest3']=gen2015('SusySignalTest3_cfi',Kby(9,50))
 
 # customise SusySignalTest
 steps['FS_SusySignalTest1_PRMXUP15_PU25'] = merge([
@@ -655,6 +656,12 @@ steps['FS_SusySignalTest2_PRMXUP15_PU25'] = merge([
                              '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',},
                              FS_PREMIXUP15_PU25_OVERLAY,
                              {"cfg":steps['SusySignalTest2']["cfg"]}])
+
+steps['FS_SusySignalTest3_PRMXUP15_PU25'] = merge([
+                           { '-s' : 'GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
+                             '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',},
+                             FS_PREMIXUP15_PU25_OVERLAY,
+                             {"cfg":steps['SusySignalTest3']["cfg"]}])
 
 
 ### FastSim: produce sample of signal events, overlayed with minbias events

@@ -54,4 +54,5 @@ workflows[250409] = ['SMS-T1tttt_mGl-1500_mLSP-100_13',["FS_SMS-T1tttt_mGl-1500_
 # susy test workflows
 workflows[770250401] = ['SusySignalTest1',["FS_SusySignalTest1_PRMXUP15_PU25","HARVESTUP15FS","MINIAODMCUP15FS"]]
 workflows[770250402] = ['SusySignalTest2',["FS_SusySignalTest2_PRMXUP15_PU25","HARVESTUP15FS","MINIAODMCUP15FS"]]
+workflows[770250403] = ['SusySignalTest3',["FS_SusySignalTest3_PRMXUP15_PU25","HARVESTUP15FS","MINIAODMCUP15FS"]]
 
