@@ -630,6 +630,7 @@ FS_PREMIXUP15_PU25_OVERLAY = merge([
          },
         Kby(100,500),step1FastUpg2015Defaults])
 
+
 ### FastSim: list of processes used in FastSim validation
 fs_proclist = ["ZEE_13",'TTbar_13','H125GGgluonfusion_13','ZTT_13','ZMM_13','NuGun_UP15','QCD_FlatPt_15_3000HS_13','SMS-T1tttt_mGl-1500_mLSP-100_13']
 
@@ -637,6 +638,24 @@ fs_proclist = ["ZEE_13",'TTbar_13','H125GGgluonfusion_13','ZTT_13','ZMM_13','NuG
 for x in fs_proclist:
     key = "FS_" + x + "_PRMXUP15_PU25"
     steps[key] = merge([FS_PREMIXUP15_PU25_OVERLAY,{"cfg":steps[x]["cfg"]}])
+
+# Susy Signal Test framgements
+steps['SusySignalTest1']=gen2015('randomizedParametersSLHAwmLHE.py',Kby(9,50))
+steps['SusySignalTest2']=gen2015('randomizedParametersSLHALHE.py',Kby(9,50))
+
+# customise SusySignalTest
+steps['FS_SusySignalTest1_PRMXUP15_PU25'] = merge([
+                           { '-s' : 'LHE,GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
+                             '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',}, 
+                             FS_PREMIXUP15_PU25_OVERLAY,
+                             {"cfg":steps['SusySignalTest1']["cfg"]}])
+
+steps['FS_SusySignalTest2_PRMXUP15_PU25'] = merge([
+                           { '-s' : 'GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
+                             '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',},
+                             FS_PREMIXUP15_PU25_OVERLAY,
+                             {"cfg":steps['SusySignalTest2']["cfg"]}])
+
 
 ### FastSim: produce sample of signal events, overlayed with minbias events
 for x in fs_proclist:
