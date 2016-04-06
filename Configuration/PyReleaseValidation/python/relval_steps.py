@@ -640,7 +640,7 @@ for x in fs_proclist:
     steps[key] = merge([FS_PREMIXUP15_PU25_OVERLAY,{"cfg":steps[x]["cfg"]}])
 
 # Susy Signal Test framgements
-steps['SusySignalTest1']=gen2015('SusySignalTest1_cfi',Kby(9,50))
+steps['SusySignalTest1']=gen2015('Configuration/Generator/python/SusySignalTest1_cfi.py',Kby(9,50))
 steps['SusySignalTest2']=gen2015('SusySignalTest2_cfi',Kby(9,50))
 steps['SusySignalTest3']=gen2015('SusySignalTest3_cfi',Kby(9,50))
 
