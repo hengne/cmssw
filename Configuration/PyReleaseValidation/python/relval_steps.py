@@ -647,7 +647,8 @@ steps['SusySignalTest3']=gen2015('SusySignalTest3_cfi',Kby(9,50))
 # customise SusySignalTest
 steps['FS_SusySignalTest1_PRMXUP15_PU25'] = merge([
                            { '-s' : 'LHE,GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
-                             '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',}, 
+                             '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(200)" ',},
+                             Kby(120,600), 
                              FS_PREMIXUP15_PU25_OVERLAY,
                              {"cfg":steps['SusySignalTest1']["cfg"]}])
 
