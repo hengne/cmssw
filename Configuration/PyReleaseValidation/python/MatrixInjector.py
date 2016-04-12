@@ -172,6 +172,10 @@ class MatrixInjector(object):
             wmsplit['RECOUP15_PU50']=1
             wmsplit['DIGIUP15_PU25']=1
             wmsplit['RECOUP15_PU25']=1
+            wmsplit['DIGIPRMXUP15_PU50']=1
+            wmsplit['RECOPRMXUP15_PU50']=1
+            wmsplit['DIGIPRMXUP15_PU25']=1
+            wmsplit['RECOPRMXUP15_PU25']=1
             wmsplit['DIGIUP15_PU25HS']=1
             wmsplit['RECOUP15_PU25HS']=1
             wmsplit['DIGIHIMIX']=5
@@ -196,7 +200,6 @@ class MatrixInjector(object):
             wmsplit['RecoFull']=5
             wmsplit['DigiFullPU']=1
             wmsplit['RecoFullPU']=1
-
                                     
             #import pprint
             #pprint.pprint(wmsplit)            
