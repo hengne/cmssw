@@ -655,12 +655,14 @@ steps['FS_SusySignalTest1_PRMXUP15_PU25'] = merge([
 steps['FS_SusySignalTest2_PRMXUP15_PU25'] = merge([
                            { '-s' : 'GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
                              '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',},
+                             Kby(120,600), 
                              FS_PREMIXUP15_PU25_OVERLAY,
                              {"cfg":steps['SusySignalTest2']["cfg"]}])
 
 steps['FS_SusySignalTest3_PRMXUP15_PU25'] = merge([
                            { '-s' : 'GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
                              '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',},
+                             Kby(120,600), 
                              FS_PREMIXUP15_PU25_OVERLAY,
                              {"cfg":steps['SusySignalTest3']["cfg"]}])
 
