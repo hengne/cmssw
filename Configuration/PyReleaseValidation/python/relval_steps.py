@@ -290,8 +290,8 @@ baseDataSetRelease=[
     'CMSSW_7_3_0_pre1-PRE_LS172_V15_FastSim-v1',                   # 4 - fast sim GEN-SIM-DIGI-RAW-HLTDEBUG for id tests
     'CMSSW_8_0_0-PU25ns_80X_mcRun2_asymptotic_v4-v1',      # 5 - fullSim PU 25ns premix for 800pre6
     'CMSSW_8_0_0-PU50ns_80X_mcRun2_startup_v4-v1',         # 6 - fullSim PU 50ns premix for 800pre6
-    'CMSSW_8_0_0-80X_mcRun2_asymptotic_v4_FastSim-v1',         # 7 - fastSim MinBias for mixing for 800pre6
-    'CMSSW_8_0_0-PU25ns_80X_mcRun2_asymptotic_v4_FastSim-v2', # 8 - fastSim premixed MinBias for 800pre6 
+    'CMSSW_8_0_3_patch1-80X_mcRun2_asymptotic_v9_FastSim-v1',         # 7 - fastSim MinBias for mixing for 800pre6
+    'CMSSW_8_0_3_patch1-PU25ns_80X_mcRun2_asymptotic_v9_FastSim-v1', # 8 - fastSim premixed MinBias for 800pre6 
     'CMSSW_7_6_0_pre6-76X_mcRun2_HeavyIon_v4-v1', 	           # 9 - Run2 HI GEN-SIM
     'CMSSW_7_6_0-76X_mcRun2_asymptotic_v11-v1',                    # 10 - 13 TeV High Stats GEN-SIM
     'CMSSW_7_6_0_pre7-76X_mcRun2_asymptotic_v9_realBS-v1',         # 11 - 13 TeV High Stats MiniBias for mixing GEN-SIM
@@ -630,6 +630,7 @@ FS_PREMIXUP15_PU25_OVERLAY = merge([
          },
         Kby(100,500),step1FastUpg2015Defaults])
 
+
 ### FastSim: list of processes used in FastSim validation
 fs_proclist = ["ZEE_13",'TTbar_13','H125GGgluonfusion_13','ZTT_13','ZMM_13','NuGun_UP15','QCD_FlatPt_15_3000HS_13','SMS-T1tttt_mGl-1500_mLSP-100_13']
 
@@ -637,6 +638,32 @@ fs_proclist = ["ZEE_13",'TTbar_13','H125GGgluonfusion_13','ZTT_13','ZMM_13','NuG
 for x in fs_proclist:
     key = "FS_" + x + "_PRMXUP15_PU25"
     steps[key] = merge([FS_PREMIXUP15_PU25_OVERLAY,{"cfg":steps[x]["cfg"]}])
+
+# Susy Signal Test framgements
+steps['SusySignalTest1']=gen2015('Configuration/Generator/python/SusySignalTest1_cfi.py',Kby(9,50))
+steps['SusySignalTest2']=gen2015('SusySignalTest2_cfi',Kby(9,50))
+steps['SusySignalTest3']=gen2015('SusySignalTest3_cfi',Kby(9,50))
+
+# customise SusySignalTest
+steps['FS_SusySignalTest1_PRMXUP15_PU25'] = merge([
+                           { '-s' : 'LHE,GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
+                             '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(200)" ',},
+                             Kby(120,600), 
+                             FS_PREMIXUP15_PU25_OVERLAY,
+                             {"cfg":steps['SusySignalTest1']["cfg"]}])
+
+steps['FS_SusySignalTest2_PRMXUP15_PU25'] = merge([
+                           { '-s' : 'GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
+                             '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',},
+                             FS_PREMIXUP15_PU25_OVERLAY,
+                             {"cfg":steps['SusySignalTest2']["cfg"]}])
+
+steps['FS_SusySignalTest3_PRMXUP15_PU25'] = merge([
+                           { '-s' : 'GEN,SIM,RECOBEFMIX,DIGIPREMIX_S2:pdigi_valid,DATAMIX,L1,L1Reco,RECO,HLT:@relval25ns,VALIDATION',
+                             '--customise_command': ' "process.source.numberEventsInLuminosityBlock = cms.untracked.uint32(10)" ',},
+                             FS_PREMIXUP15_PU25_OVERLAY,
+                             {"cfg":steps['SusySignalTest3']["cfg"]}])
+
 
 ### FastSim: produce sample of signal events, overlayed with minbias events
 for x in fs_proclist:
