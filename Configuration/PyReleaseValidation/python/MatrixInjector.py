@@ -329,7 +329,11 @@ class MatrixInjector(object):
 
                             # specify different ProcessingString for double miniAOD dataset
                             if ('DBLMINIAODMCUP15NODQM' in step): 
-                                chainDict['nowmTasklist'][-1]['ProcessingString']=chainDict['nowmTasklist'][-1]['ProcessingString']+'_miniAOD' 
+                                chainDict['nowmTasklist'][-1]['ProcessingString']=chainDict['nowmTasklist'][-1]['ProcessingString']+'_miniAOD'
+ 
+                            # SusySignalTest
+                            if ('SusySignalTest' in step): 
+                                chainDict['nowmTasklist'][-1]['EventsPerLumi']=200
 
                             if( chainDict['nowmTasklist'][-1]['Multicore'] ):
                                 # the scaling factor of 1.2GB / thread is empirical and measured on a SECOND round of tests with PU samples
