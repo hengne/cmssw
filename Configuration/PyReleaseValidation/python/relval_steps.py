@@ -793,10 +793,10 @@ def lhegensim(fragment,howMuch):
     global step1LHEGenSimDefault
     return merge([{'cfg':fragment},howMuch,step1LHEGenSimDefault])
 
-steps['TTbar012Jets_NLO_Mad_py8_Evt_13']=lhegensim('Configuration/Generator/python/TTbar012Jets_5f_NLO_FXFX_Madgraph_LHE_13TeV_cfi.py',Kby(9,50))
-steps['GluGluHToZZTo4L_M125_Pow_py8_Evt_13']=lhegensim('Configuration/Generator/python/GGHZZ4L_JHUGen_Pow_NNPDF30_LHE_13TeV_cfi.py', Kby(9,50))
-steps['VBFHToZZTo4Nu_M125_Pow_py8_Evt_13']=lhegensim('Configuration/Generator/python/VBFHZZ4Nu_Pow_NNPDF30_LHE_13TeV_cfi.py',Kby(9,50))
-steps['VBFHToBB_M125_Pow_py8_Evt_13']=lhegensim('Configuration/Generator/python/VBFHbb_Pow_NNPDF30_LHE_13TeV_cfi.py',Kby(9,50))
+steps['TTbar012Jets_NLO_Mad_py8_Evt_13']=lhegensim('Configuration/Generator/python/TTbar012Jets_5f_NLO_FXFX_Madgraph_LHE_13TeV_cfi.py',Kby(30,50))
+steps['GluGluHToZZTo4L_M125_Pow_py8_Evt_13']=lhegensim('Configuration/Generator/python/GGHZZ4L_JHUGen_Pow_NNPDF30_LHE_13TeV_cfi.py', Kby(30,50))
+steps['VBFHToZZTo4Nu_M125_Pow_py8_Evt_13']=lhegensim('Configuration/Generator/python/VBFHZZ4Nu_Pow_NNPDF30_LHE_13TeV_cfi.py',Kby(30,50))
+steps['VBFHToBB_M125_Pow_py8_Evt_13']=lhegensim('Configuration/Generator/python/VBFHbb_Pow_NNPDF30_LHE_13TeV_cfi.py',Kby(30,50))
 
 #GEN-SIM inputs for LHE-GEN-SIM workflows
 #steps['TTbar012Jets_NLO_Mad_py8_Evt_13INPUT']={'INPUT':InputInfo(dataSet='/RelValTTbar012Jets_NLO_Mad_py8_Evt_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
