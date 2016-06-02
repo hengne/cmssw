@@ -271,8 +271,8 @@ workflows[1330] = ['', ['ZMM_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 # test customized reHLT workflow
 # DIGIUP15_reHLT: as DIGIUP15 but: DIGI without pdigi_valid, no L1 step, no HLT step, and store only RAWSIM instead of FEVTDEBUGHLT, and datatier GEN-SIM-RAW instead of GEN-SIM-DIGI-RAW-HLTDEBUG
 # RECOUP15_reHLT: as RECOUP15 but: no L1Reco, no PAT, no VALIDATION/DQM, and store only RAWAODSIM instead of RECOSIM,MINIAODSIM,DQM, and datatier GEN-SIM-DIGI-RAW instead of GEN-SIM-RECO,MINIAODSIM,DQMIO
-# REHLTUP15_reHLT: do only L1REPACK and HLT ==> the McM reHLT campaign setup
-# MINIAODUP15_reHLT: do only PAT step + DQM/VALIDATION ==> the McM miniAOD campaign setup (except DQMs)
+# REHLTUP15_reHLT: do only L1REPACK and HLT ==> the McM reHLT campaign setup, output AODSIM eventcontent and AODSIM datatier
+# MINIAODUP15_reHLT: do only PAT step + DQM/VALIDATION ==> the McM miniAOD campaign setup (except DQMs), write MINIAODSIM,DQMIO datatier and MINIAODSIM,DQM event content.
 # HARVESTMINIAODUP15_reHLT: HARVEST step for DQMs from last MINIAODUP15_reHLT step. 
 workflows[801330] = ['', ['ZMM_13_reHLT','DIGIUP15_reHLT','RECOUP15_reHLT','REHLTUP15_reHLT', 'MINIAODUP15_reHLT', 'HARVESTMINIAODUP15_reHLT']]
 

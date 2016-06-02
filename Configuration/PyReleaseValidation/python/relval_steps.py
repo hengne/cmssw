@@ -1141,7 +1141,7 @@ steps['REHLTUP15_reHLT'] = {
 
 steps['MINIAODUP15_reHLT'] = {
                  '--conditions':'auto:run2_mc',
-                 '-s':'PAT,DQM:@miniAODDQM+@triggerDQM,VALIDATION:@miniAODValidation+@triggerValidation',
+                 '-s':'PAT,DQM:@miniAODDQM,VALIDATION:@miniAODValidation',
                  '--runUnscheduled':'',
                  '--datatier' : 'MINIAODSIM,DQMIO',
                  '--eventcontent':'MINIAODSIM,DQM',
@@ -1151,7 +1151,7 @@ steps['MINIAODUP15_reHLT'] = {
                  }
 
 steps['HARVESTMINIAODUP15_reHLT']={
-    '-s':'HARVESTING:@miniAODValidation+@miniAODDQM+@triggerValidation+@triggerDQM',
+    '-s':'HARVESTING:@miniAODValidation+@miniAODDQM',
     '--conditions':'auto:run2_mc',
     '--mc':'',
     '--era' : 'Run2_2016',
