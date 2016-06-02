@@ -42,6 +42,16 @@ workflows[25207]=['',['NuGun_UP15','DIGIUP15_PU25','RECOUP15_PU25','HARVESTUP15_
 workflows[25208]=['',['SMS-T1tttt_mGl-1500_mLSP-100_13','DIGIUP15_PU25','RECOUP15_PU25','HARVESTUP15_PU25']]
 workflows[25209]=['',['QCD_FlatPt_15_3000HS_13','DIGIUP15_PU25','RECOUP15_PU25','HARVESTUP15_PU25']]
 
+# fullSim PU version of test customized reHLT workflow
+# DIGIUP15_reHLT: as DIGIUP15 but: DIGI without pdigi_valid, no L1 step, no HLT step, and store only RAWSIM instead of FEVTDEBUGHLT, and datatier GEN-SIM-RAW instead of GEN-SIM-DIGI-RAW-HLTDEBUG
+# RECOUP15_reHLT: as RECOUP15 but: no L1Reco, no PAT, no VALIDATION/DQM, and store only RAWAODSIM instead of RECOSIM,MINIAODSIM,DQM, and datatier GEN-SIM-DIGI-RAW instead of GEN-SIM-RECO,MINIAODSIM,DQMIO
+# REHLTUP15_reHLT: do only L1REPACK and HLT ==> the McM reHLT campaign setup, output AODSIM eventcontent and AODSIM datatier
+# MINIAODUP15_reHLT: do only PAT step + DQM/VALIDATION ==> the McM miniAOD campaign setup (except DQMs), write MINIAODSIM,DQMIO datatier and MINIAODSIM,DQM event content.
+# HARVESTMINIAODUP15_reHLT: HARVEST step for DQMs from last MINIAODUP15_reHLT step. 
+#workflows[8025206] = ['', ['ZMM_13_reHLT','DIGIUP15_PU25_reHLT','RECOUP15_PU25_reHLT','REHLTUP15_PU25_reHLT', 'MINIAODUP15_PU25_reHLT', 'HARVESTMINIAODUP15_PU25_reHLT']]
+workflows[8025206] = ['', ['ZMM_13_reHLT','DIGIUP15_PU25_reHLT','RECOUP15_reHLT','REHLTUP15_reHLT', 'MINIAODUP15_reHLT', 'HARVESTMINIAODUP15_reHLT']]
+
+
 # LHE-based fullSim PU  workflows
 workflows[25210]=['',['TTbar012Jets_NLO_Mad_py8_Evt_13','DIGIUP15_PU25','RECOUP15_PU25','HARVESTUP15_PU25']]
 workflows[25211]=['',['GluGluHToZZTo4L_M125_Pow_py8_Evt_13','DIGIUP15_PU25','RECOUP15_PU25','HARVESTUP15_PU25']]

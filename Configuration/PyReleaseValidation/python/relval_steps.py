@@ -892,6 +892,8 @@ steps['DIGIUP15_reHLT']={'-s'     :'DIGI,L1,DIGI2RAW',
                  '-n'            :'10'
                   }
 
+steps['DIGIUP15_PU25_reHLT']=merge([PU25,steps['DIGIUP15_reHLT']])
+
 steps['DIGIUP15PROD1']=merge([{'-s':'DIGI,L1,DIGI2RAW,HLT:@relval2016','--eventcontent':'RAWSIM','--datatier':'GEN-SIM-RAW'},step2Upg2015Defaults])
 steps['DIGIUP15_PU25']=merge([PU25,step2Upg2015Defaults])
 steps['DIGIUP15_PU50']=merge([PU50,step2Upg2015Defaults50ns])
@@ -1128,7 +1130,7 @@ steps['RECOUP15_reHLT'] = {
     '--era' : 'Run2_2016'
     }
 
-#for 2015
+steps['RECOUP15_PU25_reHLT']=merge([PU25,steps['RECOUP15_reHLT']])
 
 steps['REHLTUP15_reHLT'] = {
       '-s':'L1REPACK:FullMC,HLT:@relval2016',
