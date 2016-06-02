@@ -274,7 +274,7 @@ workflows[1330] = ['', ['ZMM_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 # REHLTUP15_reHLT: do only L1REPACK and HLT ==> the McM reHLT campaign setup, output AODSIM eventcontent and AODSIM datatier
 # MINIAODUP15_reHLT: do only PAT step + DQM/VALIDATION ==> the McM miniAOD campaign setup (except DQMs), write MINIAODSIM,DQMIO datatier and MINIAODSIM,DQM event content.
 # HARVESTMINIAODUP15_reHLT: HARVEST step for DQMs from last MINIAODUP15_reHLT step. 
-workflows[801330] = ['', ['ZMM_13_reHLT','DIGIUP15_reHLT','RECOUP15_reHLT','REHLTUP15_reHLT', 'MINIAODUP15_reHLT', 'HARVESTMINIAODUP15_reHLT']]
+workflows[801330] = ['', ['ZMM_13_reHLT','DIGIUP15_reHLT','RECOUP15_reHLT','REHLTUP15_reHLT','MINIAODUP15_reHLT','HARVESTMINIAODUP15_reHLT']]
 
 
 workflows[1310] = ['', ['ADDMonoJet_d3MD3_13','DIGIUP15','RECOUP15','HARVESTUP15']]
