@@ -364,6 +364,9 @@ steps['WE_13INPUT']={'INPUT':InputInfo(dataSet='/RelValWE_13/%s/GEN-SIM'%(baseDa
 steps['WM_13INPUT']={'INPUT':InputInfo(dataSet='/RelValWM_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['WpM_13INPUT']={'INPUT':InputInfo(dataSet='/RelValWpM_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
 steps['ZMM_13INPUT']={'INPUT':InputInfo(dataSet='/RelValZMM_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+
+steps['ZMM_13_reHLTINPUT']={'INPUT':InputInfo(dataSet='/RelValZMM_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
+
 steps['ZMM_13_HIINPUT']={'INPUT':InputInfo(dataSet='/RelValZMM_13_HI/%s/GEN-SIM'%(baseDataSetRelease[1],),location='STD')}
 steps['ZEEMM_13_HIINPUT']={'INPUT':InputInfo(dataSet='/RelValZEEMM_13_HI/%s/GEN-SIM'%(baseDataSetRelease[1],),location='STD')}
 steps['ZpMM_13INPUT']={'INPUT':InputInfo(dataSet='/RelValZpMM_13/%s/GEN-SIM'%(baseDataSetRelease[3],),location='STD')}
@@ -450,6 +453,9 @@ steps['WE_13']=gen2015('WE_13TeV_TuneCUETP8M1_cfi',Kby(9,100))
 steps['WM_13']=gen2015('WM_13TeV_TuneCUETP8M1_cfi',Kby(9,200))
 steps['WpM_13']=gen2015('WpM_13TeV_TuneCUETP8M1_cfi',Kby(9,200))
 steps['ZMM_13']=gen2015('ZMM_13TeV_TuneCUETP8M1_cfi',Kby(18,100))
+
+steps['ZMM_13_reHLT']=gen2015('ZMM_13TeV_TuneCUETP8M1_cfi',Kby(18,100))
+
 steps['ZEEMM_13']=gen2015('ZEEMM_13TeV_TuneCUETP8M1_cfi',Kby(18,300))
 steps['ZpMM_13']=gen2015('ZpMM_13TeV_TuneCUETP8M1_cfi',Kby(9,200))
 
