@@ -877,6 +877,15 @@ step2Upg2015Defaults = {'-s'     :'DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relval2016'
 step2Upg2015Defaults50ns = merge([{'-s':'DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relval50ns','--conditions':'auto:run2_mc_50ns','--era':'Run2_50ns'},step2Upg2015Defaults])
 
 steps['DIGIUP15']=merge([step2Upg2015Defaults])
+
+steps['DIGIUP15_reHLT']={'-s'     :'DIGI,DIGI2RAW',
+                 '--conditions'  :'auto:run2_mc',
+                 '--datatier'    :'GEN-SIM-RAW',
+                 '--eventcontent':'RAWSIM',
+                 '--era'         :'Run2_2016',
+                 '-n'            :'10'
+                  }
+
 steps['DIGIUP15PROD1']=merge([{'-s':'DIGI,L1,DIGI2RAW,HLT:@relval2016','--eventcontent':'RAWSIM','--datatier':'GEN-SIM-RAW'},step2Upg2015Defaults])
 steps['DIGIUP15_PU25']=merge([PU25,step2Upg2015Defaults])
 steps['DIGIUP15_PU50']=merge([PU50,step2Upg2015Defaults50ns])
@@ -1102,6 +1111,47 @@ step3Up2015Hal = {'-s'            :'RAW2DIGI,L1Reco,RECO,EI,VALIDATION,DQM',
 #step3DefaultsUnsch = merge([unSchOverrides,step3Defaults])
 
 steps['RECOUP15']=merge([step3Up2015Defaults]) # todo: remove UP from label
+
+steps['RECOUP15_reHLT'] = {
+    '-s':'RAW2DIGI,RECO,EI',
+    '--runUnscheduled':'',
+    '--conditions':'auto:run2_mc',
+    '-n':'10',
+    '--datatier':'GEN-SIM-DIGI-RAW',
+    '--eventcontent':'RAWAODSIM',
+    '--era' : 'Run2_2016'
+    }
+
+#for 2015
+
+steps['REHLTUP15_reHLT'] = {
+      '-s':'L1REPACK:FullMC,HLT:@relval2016',
+      '--conditions':'auto:run2_mc',
+      '--datatier':'AODSIM',
+      '--eventcontent':'AODSIM',
+      '--era' : 'Run2_2016',
+      '-n':'10',
+     }
+
+steps['MINIAODUP15_reHLT'] = {
+                 '--conditions':'auto:run2_mc',
+                 '-s':'PAT,DQM:@miniAODDQM+@triggerDQM,VALIDATION:@miniAODValidation+@triggerValidation',
+                 '--runUnscheduled':'',
+                 '--datatier' : 'MINIAODSIM,DQMIO',
+                 '--eventcontent':'MINIAODSIM,DQM',
+                 '--era' : 'Run2_2016',
+                 '--mc' : '',
+                 '-n' : '10',
+                 }
+
+steps['HARVESTMINIAODUP15_reHLT']={
+    '-s':'HARVESTING:@miniAODValidation+@miniAODDQM+@triggerValidation+@triggerDQM',
+    '--conditions':'auto:run2_mc',
+    '--mc':'',
+    '--era' : 'Run2_2016',
+    '--filetype':'DQM',
+    }
+
 steps['RECOUP15AlCaCalo']=merge([step3Up2015DefaultsAlCaCalo]) # todo: remove UP from label
 
 #steps['RECOUP15PROD1']=merge([{ '-s' : 'RAW2DIGI,L1Reco,RECO,EI,DQM:DQMOfflinePOGMC', '--datatier' : 'AODSIM,DQMIO', '--eventcontent' : 'AODSIM,DQM'},step3Up2015Defaults])

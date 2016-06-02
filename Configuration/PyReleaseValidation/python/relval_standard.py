@@ -268,6 +268,13 @@ workflows[1328] = ['', ['QCD_Pt_80_120_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 workflows[1327] = ['', ['WM_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 workflows[1330] = ['', ['ZMM_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 
+# test customized reHLT workflow
+# DIGIUP15_reHLT: as DIGIUP15 but: DIGI without pdigi_valid, no L1 step, no HLT step, and store only RAWSIM instead of FEVTDEBUGHLT, and datatier GEN-SIM-RAW instead of GEN-SIM-DIGI-RAW-HLTDEBUG
+# RECOUP15_reHLT: as RECOUP15 but: no L1Reco, no PAT, no VALIDATION/DQM, and store only RAWAODSIM instead of RECOSIM,MINIAODSIM,DQM, and datatier GEN-SIM-DIGI-RAW instead of GEN-SIM-RECO,MINIAODSIM,DQMIO
+# REHLTUP15_reHLT:  
+workflows[801330] = ['', ['ZMM_13_reHLT','DIGIUP15_reHLT','RECOUP15_reHLT','REHLTUP15_reHLT', 'MINIAODUP15_reHLT', 'HARVESTMINIAODUP15_reHLT']]
+
+
 workflows[1310] = ['', ['ADDMonoJet_d3MD3_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 workflows[1312] = ['', ['ZpMM_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 workflows[1314] = ['', ['WpM_13','DIGIUP15','RECOUP15','HARVESTUP15']]
