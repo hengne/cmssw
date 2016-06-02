@@ -884,7 +884,7 @@ step2Upg2015Defaults50ns = merge([{'-s':'DIGI:pdigi_valid,L1,DIGI2RAW,HLT:@relva
 
 steps['DIGIUP15']=merge([step2Upg2015Defaults])
 
-steps['DIGIUP15_reHLT']={'-s'     :'DIGI,DIGI2RAW',
+steps['DIGIUP15_reHLT']={'-s'     :'DIGI,EI,DIGI2RAW',
                  '--conditions'  :'auto:run2_mc',
                  '--datatier'    :'GEN-SIM-RAW',
                  '--eventcontent':'RAWSIM',
