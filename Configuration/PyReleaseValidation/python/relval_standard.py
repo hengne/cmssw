@@ -301,6 +301,12 @@ workflows[1361] = ['', ['GluGluHToZZTo4L_M125_Pow_py8_Evt_13','DIGIUP15','RECOUP
 workflows[1362] = ['', ['VBFHToZZTo4Nu_M125_Pow_py8_Evt_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 workflows[1363] = ['', ['VBFHToBB_M125_Pow_py8_Evt_13','DIGIUP15','RECOUP15','HARVESTUP15']]
 
+# reHLT workflows of the LHE-based fullSim noPU above
+
+workflows[8001361] = ['', ['GluGluHToZZTo4L_M125_Pow_py8_Evt_13','DIGIUP15_reHLT','RECOUP15_reHLT','REHLTUP15_reHLT','MINIAODUP15_reHLT','HARVESTMINIAODUP15_reHLT']]
+workflows[8001362] = ['', ['VBFHToZZTo4Nu_M125_Pow_py8_Evt_13','DIGIUP15_reHLT','RECOUP15_reHLT','REHLTUP15_reHLT','MINIAODUP15_reHLT','HARVESTMINIAODUP15_reHLT']]
+workflows[8001363] = ['', ['VBFHToBB_M125_Pow_py8_Evt_13','DIGIUP15_reHLT','RECOUP15_reHLT','REHLTUP15_reHLT','MINIAODUP15_reHLT','HARVESTMINIAODUP15_reHLT']]
+
 ### HI test ###
 
 ###  Run I cond.
