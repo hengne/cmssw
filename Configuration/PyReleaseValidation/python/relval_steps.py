@@ -1802,7 +1802,7 @@ for year,k in [(year,k) for year in upgradeKeys for k in upgradeKeys[year]]:
                                       '--geometry' : geom
                                       }
 
-    if cust!=None : upgradeStepDict['DigiFull'][k]['--customise']=cust
+    if custdigi!=None : upgradeStepDict['DigiFull'][k]['--customise']=custdigi
     if era is not None: upgradeStepDict['DigiFull'][k]['--era']=era
  
     if k2 in PUDataSets:
